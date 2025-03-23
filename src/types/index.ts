@@ -10,6 +10,7 @@ export interface Property {
   houses: number;
   mortgaged: boolean;
   housePrice: number;
+  group?: string;
 }
 
 export interface Player {
@@ -64,6 +65,8 @@ export interface PropertyCardProps {
 export interface PlayerCardProps {
   player: Player;
   isCurrentPlayer: boolean;
+  properties?: Property[];
+  onPropertyClick?: (propertyId: number) => void;
 }
 
 export interface GameControlsProps {

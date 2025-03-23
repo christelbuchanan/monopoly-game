@@ -1,7 +1,13 @@
 import React from 'react';
 import { PlayerCardProps } from '../types';
+import PlayerProperties from './PlayerProperties';
 
-const PlayerCard: React.FC<PlayerCardProps> = ({ player, isCurrentPlayer }) => {
+const PlayerCard: React.FC<PlayerCardProps> = ({ 
+  player, 
+  isCurrentPlayer, 
+  properties, 
+  onPropertyClick 
+}) => {
   return (
     <div 
       className={`
@@ -40,7 +46,14 @@ const PlayerCard: React.FC<PlayerCardProps> = ({ player, isCurrentPlayer }) => {
       </div>
       
       {isCurrentPlayer && (
-        <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-3 h-3 bg-monopoly-yellow rotate-45 animate-pulse"></div>
+        <>
+          <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-3 h-3 bg-monopoly-yellow rotate-45 animate-pulse"></div>
+          <PlayerProperties 
+            player={player} 
+            properties={properties} 
+            onPropertyClick={onPropertyClick}
+          />
+        </>
       )}
     </div>
   );
